@@ -8,6 +8,8 @@ Keras
 mediapipe
 tensorflow==2.13.0
 inotify
+scikit-learn
+
 
 click==8.1.3
 Flask==2.2.2
