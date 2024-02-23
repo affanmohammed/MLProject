@@ -34,7 +34,7 @@ while True:
     y_ = []
 
     ret, frame = cap.read()
-    H, W, _ = frame.shape
+    #H, W, _ = frame.shape
     frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
 
     results = hands.process(frame_rgb)
@@ -61,11 +61,11 @@ while True:
                 data_aux.append(x - min(x_))
                 data_aux.append(y - min(y_))
 
-        x1 = int(min(x_) * W) - 10
-        y1 = int(min(y_) * H) - 10
+        x1 = int(min(x_) * 640) - 10
+        y1 = int(min(y_) * 480) - 10
 
-        x2 = int(max(x_) * W) - 10
-        y2 = int(max(y_) * H) - 10
+        x2 = int(max(x_) * 640) - 10
+        y2 = int(max(y_) * 480) - 10
 
         prediction = model.predict([np.asarray(data_aux)])
         predicted_character = labels_dict[int(prediction[0])]
@@ -80,7 +80,7 @@ while True:
             if len(sentence) > 5:
                 sentence = sentence[-5:]    
 
-        cv2.rectangle(frame, (0, 0), (W, 40), (200, 100, 50), -1)
+        cv2.rectangle(frame, (0, 0), (640, 40), (200, 100, 50), -1)
         cv2.putText(frame, ' '.join(sentence), (3, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2, cv2.LINE_AA)
 
         #frame_placeholder.image(frame, channels="BGR")
