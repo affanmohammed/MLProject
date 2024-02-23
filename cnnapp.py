@@ -23,7 +23,7 @@ hands = mp_hands.Hands(static_image_mode=True, min_detection_confidence=0.3)
 labels_dict = {1:'Hello',2:'Thumps Up',3:'I Love You',4:'Yes',5:'No',6:'Good Bye',7:"Cute",8:'Father',9:'Mother',10:'Why'}
 
 
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(1)
 st.title("ASL with CNN")
 frame_placeholder = st.empty()
 stop_button_pressed = st.button("Stop")
