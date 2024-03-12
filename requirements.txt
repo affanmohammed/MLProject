@@ -1,5 +1,0 @@
-numpy
-opencv-python-headless
-Keras
-tensorflow
-matplotlib
